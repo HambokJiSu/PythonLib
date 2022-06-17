@@ -91,4 +91,4 @@ print(np.amin(s))
 #	pyplot 차트나 플롯으로 그려주는 라이브러리
 import matplotlib.pyplot as plt
 plt.hist(s)
-#plt.show()
+plt.show()
