@@ -86,9 +86,41 @@ print(np.amax(b))
 s = np.r_[a,b]
 print(np.amin(s))
 
+#	조건 연산
+print("{0:=^25}".format("조건 연산 : 조건식 부여"))
+arr = np.array([10, 20, 30])
+print(arr > 10)	#	boolen 타입 반환
+
+print("{0:=^25}".format("조건 연산 : 배열 인덱스별 조건 지정 (True 값만 반환)"))
+arr = np.array([10, 20, 30])
+arrBool = [True, False, True]
+print(arr[arrBool])
+arr = np.array([[10, 20, 30], [11, 21, 31], [12, 22, 32]])
+arrBool = [False, True, True]
+print(arr[arrBool])
+print("{0:=^25}".format("조건 연산 : 복합 조건"))
+print(arr[(arr > 10) & (arr < 30)])
+
+print("{0:=^25}".format("조건 연산 : 조건별 arr 갱신"))
+arr = np.array([[10, 20, 30], [11, 21, 31], [12, 22, 32]])
+arr = np.where(arr > 20, 1, 0)	#	아래 3줄과 동일한 내용, 단순화 해서 사용하자
+# cond = arr > 20
+# arr[cond] = 1	#	cond가 성립할 때 1 대입
+# arr[~cond] = 0	#	cond가 성립하지 않을 때 0 대입
+print(arr)
+
+print("{0:=^25}".format("조건 연산 : arr 갱신 시 값 추가조정"))
+arr = np.array([[10, 20, 30], [11, 21, 31], [12, 22, 32]])
+arr = np.where(arr > 20, arr+10, arr-10)
+print(arr)
+
+print("{0:=^25}".format("Test 문제 : 85000미만인 기간은 몇일?"))
+arrTest = np.array([93000, 93200, 88000, 83000, 82000])
+arrResult = arrTest[arrTest < 85000]
+print(len(arrResult))
 
 #	pip install matplotlib
 #	pyplot 차트나 플롯으로 그려주는 라이브러리
 import matplotlib.pyplot as plt
 plt.hist(s)
-plt.show()
+#plt.show()
