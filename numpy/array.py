@@ -73,5 +73,16 @@ print(a)
 a = arr[1:, 1:]		#	1인덱스부터 끝까지
 print(a)
 
+#	zeros, ones : 0 또는 1로 배열 객체를 채워넣음
+print("{0:=^25}".format("zeros / ones"))
+a = np.zeros(5)
+print(a)
+a = np.zeros((2, 3))
+print(a)
+a = np.ones(5)
+print(a)
+a = np.ones((2, 3))
+print(a)
+
 #	2차원 배열의 2,3열 인덱스 값만 반환하려면?
 print(arr[ : , 1:3])

@@ -38,3 +38,16 @@ data = [10, 20, 30]
 idx = ["와", "비비빅", "옥동자"]		# 시리즈 생성 시 인덱스를 명시적으로 적용
 s = pd.Series(data, idx)
 print(s)
+
+"""
+시리즈 인덱싱
+iloc : 행번호 인덱스 사용
+loc : 인덱스 사용
+"""
+print("{0:=^25}".format("iloc / loc"))
+data = [10, 20, 30]
+s = pd.Series(data)
+print(s.iloc[0])
+print(s.iloc[1])
+print(s.iloc[2])
+print(s.iloc[-1])
