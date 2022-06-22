@@ -4,17 +4,24 @@
 #from matplotlib.pyplot import arrow
 import numpy as np
 import pandas as pd
+import re
 from datetime import datetime as dt
+
+def add_char(x):
+	return "[" + x + "]"
+
+def strCut(s):
+	p = re.compile(".*을$|.*를$|.*은$|.*는$|.*이$|.*가$")
+	return (s[:-1]) if (p.search(s) != None) else (s)
 
 print(dt.now().strftime("%H:%M:%S %f"))
 f = open("txt/문재인_퇴임사.txt", encoding="UTF-8")
 data = f.read()
 #print(data)
 
-arrWord = np.array(data.replace("\n", "").replace(",", " ").replace(".", " ").split(" "))
-
-def add_char(x):
-	return "[" + x + "]"
+arrWord = data.replace("\n", "").replace(",", " ").replace(".", " ").split(" ")
+arrWord = np.array(list(map(strCut, arrWord)))
+#print(arrWord)
 
 #	use Series
 s = pd.Series(arrWord)
