@@ -13,9 +13,15 @@ data = f.read()
 
 arrWord = np.array(data.replace("\n", "").replace(",", " ").replace(".", " ").split(" "))
 
+def add_char(x):
+	return "[" + x + "]"
+
 #	use Series
 s = pd.Series(arrWord)
-print(s.value_counts().iloc[:6])
+s = s.map(add_char)
+#print(s)
+s = s.value_counts().iloc[1:6]
+print(s)
 
 #	use DataFrame
 """
