@@ -11,7 +11,7 @@ def add_char(x):
 	return "[" + x + "]"
 
 def strCut(s):
-	p = re.compile(".*을$|.*를$|.*은$|.*는$|.*이$|.*가$")
+	p = re.compile(".*을$|.*를$|.*은$|.*는$|.*이$|.*가$")	#	단어 끝에 붙은 조사 확인
 	return (s[:-1]) if (p.search(s) != None) else (s)
 
 print(dt.now().strftime("%H:%M:%S %f"))
