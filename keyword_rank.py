@@ -23,12 +23,19 @@ arrWord = data.replace("\n", "").replace(",", " ").replace(".", " ").split(" ")
 arrWord = np.array(list(map(strCut, arrWord)))
 #print(arrWord)
 
+#	use collections.Counter
+from collections import Counter
+ct = Counter(arrWord)
+print(ct.most_common(5))
+
 #	use Series
+"""
 s = pd.Series(arrWord)
 s = s.map(add_char)
 #print(s)
 s = s.value_counts().iloc[1:6]
 print(s)
+"""
 
 #	use DataFrame
 """
