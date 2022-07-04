@@ -1,0 +1,1467 @@
+
+<!DOCTYPE HTML>
+<html lang="ko">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="mzkAy71X1qQFWihQN535LoiToXg34MUg9nuor7Og9E8" />
+    <meta name="naver-site-verification" content="d7c116bce998e6961b8db93c8592550f1a82119f"/>
+    <meta name="description" content="온라인 책을 제작 공유하는 플랫폼 서비스">
+
+    
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="위키독스">
+<meta property="og:title" content="02-7 불 자료형">
+<meta property="og:description" content="[TOC]  ## 불 자료형이란?  불(bool) 자료형이란 참(True)과 거짓(False)을 나타내는 자료형이다. 불 자료형은 다음 2가지 값만을 가질 수 있다.  *  ...">
+<meta property="og:image" content="https://wikidocs.net/images/book/j2p_title_new2_S1JyeeE.jpg">
+<meta property="og:url" content="https://wikidocs.net/17">
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/static/img/favicon.ico">
+    <link rel="canonical" href="https://wikidocs.net/book/1">
+    <title>02-7 불 자료형 - 점프 투 파이썬</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    -->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    
+    <link type="text/css" href="/static/book/css/style_stack.css?v=20220413_01" rel="stylesheet"  media="screen" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/static/book/js/utils.js"></script>
+    <script type="text/javascript" src="/static/book/js/base.js?v=20210908_02"></script>
+    
+    
+
+<link type="text/css" href="/static/apprise/apprise.min.css" rel="stylesheet"  />
+<link type="text/css" href="/static/book/css/markdown_stack.css?v=20220525_01" rel="stylesheet" />
+<link type="text/css" href="/static/treeview/bootstrap-treeview.min.css" rel="stylesheet" />
+
+
+
+<script type="text/javascript" src="/static/apprise/apprise-1.5.min.js"></script>
+<script type="text/javascript" src="/static/scroll/jquery.nicescroll.js"></script>
+<script type="text/javascript" src="/static/book/js/page.js?v=20210601_01"></script>
+<link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+
+
+
+<!-- 수식입력 mathjax -->
+<script>
+window.MathJax = {
+  options: {
+    ignoreHtmlClass: 'tex2jax_ignore',
+    processHtmlClass: 'tex2jax_process'
+  },
+  loader: {load: ['[tex]/physics', '[tex]/braket']},
+  tex: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    packages: {'[+]': ['physics', 'braket']}
+  }
+};
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<!-- 수식입력 mathjax -->
+
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-2686629-3']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6N5MJRGLWG"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-6N5MJRGLWG');
+    </script>
+</head>
+<body>
+
+
+    <!-- PC -->
+
+
+
+
+
+
+
+
+<div class="container">
+
+<div class="content row tex2jax_ignore" style="margin-top:0px;">
+    <div class="col-sm-3">
+        <div class="row">
+
+
+    <div class="col-sm-3 sidebar" style="padding:0;margin:0;overflow-x: hidden;">
+
+        
+        <div class="row">
+            <div class="col-xs-12" style="border-bottom:solid 1px #ddd;">
+                <button id="toggle_toc_btn" class="btn btn-sm btn-default" style="margin:10px;">목차보기</button>
+                <label for="toc_on" class="small">
+                    <input type="radio" id="toc_on" name="toc_on_off" value="show"> Show
+                </label>
+                <label for="toc_off" class="small">
+                    <input type="radio" id="toc_off" name="toc_on_off" value="hide"> Hide
+                </label>
+            </div>
+        </div>
+        
+
+        <div class="toc toc-checker">
+
+            <!--
+            <div style="padding:15px 10px 15px 15px;background:#f9f9f9;border-bottom:solid 1px #ccc;">
+                <a class="pull-right menu_link menu-toggle" style="cursor:pointer;margin-right:5px;"><span class="glyphicon glyphicon-menu-hamburger" title="메뉴"></span></a>
+                <span class="">
+                    <a href="/" class="menu_link" style="font-family:consolas;">WikiDocs</a>
+                </span>
+            </div>
+            -->
+
+            <div class="row">
+
+                <div class="col-xs-12" style="margin:;padding:0;">
+
+                    <div class="row" style="margin:0;padding:0;border-bottom:solid 1px #ccc;">
+                        <div class="col-xs-10">
+                            <input type="text" id="kw" name="kw" class="input-search" placeholder="검색어를 입력하세요." value="">
+                        </div>
+                        <div class="col-xs-2 clearfix">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="list-group list-group-toc" style="margin:0;">
+
+                <a class="list-group-item " href="/book/1" style="margin:0;">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;" title="점프 투 파이썬">
+                        
+                            <i class="glyphicon glyphicon-book"></i>
+                        
+                        <strong>점프 투 파이썬</strong>
+                    </span>
+                </a>
+
+                
+                <a href="javascript:page(2)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="00장 들어가기 전에">
+                        <span style="padding-left:0px">
+                        
+                        00장 들어가기 전에
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(4319)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="00-1 머리말">
+                        <span style="padding-left:20px">
+                        
+                        00-1 머리말
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(4320)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="00-2 저자소개">
+                        <span style="padding-left:20px">
+                        
+                        00-2 저자소개
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(742)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="00-3 주요변경이력">
+                        <span style="padding-left:20px">
+                        
+                        00-3 주요변경이력
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(4321)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="00-4 책 구입 안내">
+                        <span style="padding-left:20px">
+                        
+                        00-4 책 구입 안내
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(5)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="01장 파이썬이란 무엇인가?">
+                        <span style="padding-left:0px">
+                        
+                        01장 파이썬이란 무엇인가?
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(4307)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="01-1 파이썬이란?">
+                        <span style="padding-left:20px">
+                        
+                        01-1 파이썬이란?
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(6)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="01-2 파이썬의 특징">
+                        <span style="padding-left:20px">
+                        
+                        01-2 파이썬의 특징
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(7)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="01-3 파이썬으로 무엇을 할 수 있을까?">
+                        <span style="padding-left:20px">
+                        
+                        01-3 파이썬으로 무엇을 할 수 있을까?
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(8)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="01-4 파이썬 설치하기">
+                        <span style="padding-left:20px">
+                        
+                        01-4 파이썬 설치하기
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(9)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="01-5 파이썬 둘러보기">
+                        <span style="padding-left:20px">
+                        
+                        01-5 파이썬 둘러보기
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(17684)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="01-6 파이썬과 에디터">
+                        <span style="padding-left:20px">
+                        
+                        01-6 파이썬과 에디터
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(11)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="02장 파이썬 프로그래밍의 기초, 자료형">
+                        <span style="padding-left:0px">
+                        
+                        02장 파이썬 프로그래밍의 기초, 자료형
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(12)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="02-1 숫자형">
+                        <span style="padding-left:20px">
+                        
+                        02-1 숫자형
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(13)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="02-2 문자열 자료형">
+                        <span style="padding-left:20px">
+                        
+                        02-2 문자열 자료형
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(14)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="02-3 리스트 자료형">
+                        <span style="padding-left:20px">
+                        
+                        02-3 리스트 자료형
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(15)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="02-4 튜플 자료형">
+                        <span style="padding-left:20px">
+                        
+                        02-4 튜플 자료형
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(16)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="02-5 딕셔너리 자료형">
+                        <span style="padding-left:20px">
+                        
+                        02-5 딕셔너리 자료형
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(1015)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="02-6 집합 자료형">
+                        <span style="padding-left:20px">
+                        
+                        02-6 집합 자료형
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(17)" class="list-group-item active">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="02-7 불 자료형">
+                        <span style="padding-left:20px">
+                        
+                        02-7 불 자료형
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(18)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="02-8 자료형의 값을 저장하는 공간, 변수">
+                        <span style="padding-left:20px">
+                        
+                        02-8 자료형의 값을 저장하는 공간, 변수
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(42526)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="02장 연습문제">
+                        <span style="padding-left:20px">
+                        
+                        02장 연습문제
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(19)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="03장 프로그램의 구조를 쌓는다! 제어문">
+                        <span style="padding-left:0px">
+                        
+                        03장 프로그램의 구조를 쌓는다! 제어문
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(20)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="03-1 if문">
+                        <span style="padding-left:20px">
+                        
+                        03-1 if문
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(21)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="03-2 while문">
+                        <span style="padding-left:20px">
+                        
+                        03-2 while문
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(22)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="03-3 for문">
+                        <span style="padding-left:20px">
+                        
+                        03-3 for문
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(42527)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="03장 연습문제">
+                        <span style="padding-left:20px">
+                        
+                        03장 연습문제
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(23)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="04장 프로그램의 입력과 출력은 어떻게 해야 할까?">
+                        <span style="padding-left:0px">
+                        
+                        04장 프로그램의 입력과 출력은 어떻게 해야 할까?
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(24)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="04-1 함수">
+                        <span style="padding-left:20px">
+                        
+                        04-1 함수
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(25)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="04-2 사용자 입력과 출력">
+                        <span style="padding-left:20px">
+                        
+                        04-2 사용자 입력과 출력
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(26)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="04-3 파일 읽고 쓰기">
+                        <span style="padding-left:20px">
+                        
+                        04-3 파일 읽고 쓰기
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(42528)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="04장 연습문제">
+                        <span style="padding-left:20px">
+                        
+                        04장 연습문제
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(27)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="05장 파이썬 날개달기">
+                        <span style="padding-left:0px">
+                        
+                        05장 파이썬 날개달기
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(28)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="05-1 클래스">
+                        <span style="padding-left:20px">
+                        
+                        05-1 클래스
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(29)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="05-2 모듈">
+                        <span style="padding-left:20px">
+                        
+                        05-2 모듈
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(1418)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="05-3 패키지">
+                        <span style="padding-left:20px">
+                        
+                        05-3 패키지
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(30)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="05-4 예외 처리">
+                        <span style="padding-left:20px">
+                        
+                        05-4 예외 처리
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(32)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="05-5 내장 함수">
+                        <span style="padding-left:20px">
+                        
+                        05-5 내장 함수
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(33)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="05-6 라이브러리">
+                        <span style="padding-left:20px">
+                        
+                        05-6 라이브러리
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(42529)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="05장 연습문제">
+                        <span style="padding-left:20px">
+                        
+                        05장 연습문제
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(34)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="06장 파이썬 프로그래밍, 어떻게 시작해야 할까?">
+                        <span style="padding-left:0px">
+                        
+                        06장 파이썬 프로그래밍, 어떻게 시작해야 할까?
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(35)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="06-1 내가 프로그램을 만들 수 있을까?">
+                        <span style="padding-left:20px">
+                        
+                        06-1 내가 프로그램을 만들 수 있을까?
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(40)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="06-2 3과 5의 배수 합하기">
+                        <span style="padding-left:20px">
+                        
+                        06-2 3과 5의 배수 합하기
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(38)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="06-3 게시판 페이징하기">
+                        <span style="padding-left:20px">
+                        
+                        06-3 게시판 페이징하기
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(36)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="06-4 간단한 메모장 만들기">
+                        <span style="padding-left:20px">
+                        
+                        06-4 간단한 메모장 만들기
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(37)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="06-5 탭을 4개의 공백으로 바꾸기">
+                        <span style="padding-left:20px">
+                        
+                        06-5 탭을 4개의 공백으로 바꾸기
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(39)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="06-6 하위 디렉터리 검색하기">
+                        <span style="padding-left:20px">
+                        
+                        06-6 하위 디렉터리 검색하기
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(85800)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="06-7 파이보">
+                        <span style="padding-left:20px">
+                        
+                        06-7 파이보
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(744)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="06-8 코딩도장">
+                        <span style="padding-left:20px">
+                        
+                        06-8 코딩도장
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(1669)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="07장 정규표현식">
+                        <span style="padding-left:0px">
+                        
+                        07장 정규표현식
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(1642)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="07-1 정규 표현식 살펴보기">
+                        <span style="padding-left:20px">
+                        
+                        07-1 정규 표현식 살펴보기
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(4308)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="07-2 정규 표현식 시작하기">
+                        <span style="padding-left:20px">
+                        
+                        07-2 정규 표현식 시작하기
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(4309)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="07-3 강력한 정규 표현식의 세계로">
+                        <span style="padding-left:20px">
+                        
+                        07-3 강력한 정규 표현식의 세계로
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(17114)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="08장 종합문제">
+                        <span style="padding-left:0px">
+                        
+                        08장 종합문제
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(12769)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="09장 풀이">
+                        <span style="padding-left:0px">
+                        
+                        09장 풀이
+                        </span>
+                    </span>
+                </a>
+                
+                <a href="javascript:page(78308)" class="list-group-item ">
+                    <span style="white-space:nowrap;overflow:hidden;display:block;"
+                          title="10장 마치며">
+                        <span style="padding-left:0px">
+                        
+                        10장 마치며
+                        </span>
+                    </span>
+                </a>
+                
+            </div>
+        </div>
+
+        
+
+        <input type="hidden" name="request_mobile" id="request_mobile" value="0" />
+
+        <form id="search_form" action="/book/search/1" method="post">
+            <input type="hidden" name="keyword" id="keyword">
+        </form>
+
+    </div>
+
+</div>
+
+<script>
+function myTrim(x) {
+    return x.replace(/^\s+|\s+$/gm,'');
+}
+
+function search_json() {
+    var kw = myTrim($("#kw").val());
+    if(!kw) {
+        return;
+    }
+
+    $.post("/book/search.json", {
+        "keyword": kw
+
+    }, function (json) {
+        if (json.success) {
+            location.href = "/book/search/result/1";
+        }
+
+    }, "json");
+}
+
+$(document).ready(function () {
+    $(".book-search").on("click", function() {
+        $("#search_form").submit();
+    });
+
+    $("#mobile_search_btn").on("click", function() {
+        search_json();
+    });
+
+    $('#kw').keyup(function(e) {
+        if (e.keyCode == 13) {
+            search_json();
+        }
+    });
+
+    $(".home").on("click", function() {
+        location.href = "/";
+    });
+
+    if (typeof(Storage) !== "undefined") {
+        if(localStorage.sidebar == "hidden") {
+            menuToggle();
+        }else {
+            $(".sidebar").show();
+            $(".toc-header").show();
+        }
+    }else {
+        $(".sidebar").show();
+        $(".toc-header").show();
+    }
+
+    $(".toc").css("display", "block");
+    if (typeof(Storage) !== "undefined") {
+        $(".sidebar").scrollTop(localStorage.sp);
+    }
+
+    $(".sidebar").css("overflow-y", "auto");
+
+    $(".toc_item").on("click", function() {
+        var page_id = $(this).attr("page_id");
+        // $(".selected_toc").removeClass("selected_toc");
+        // $(this).addClass("selected_toc");
+        page(page_id);
+
+    });
+
+    $(".menu-toggle").on("click", function() {
+        menuToggle();
+
+        if (typeof(Storage) !== "undefined") {
+            if(localStorage.sidebar == "hidden") {
+                localStorage.sidebar = "show";
+            }else {
+                localStorage.sidebar = "hidden";
+            }
+        }
+    });
+
+    
+    $("input[name=toc_on_off]").on("click", function() {
+        var result = $(this).val();
+        if (typeof(Storage) !== "undefined") {
+            localStorage.toc = result;
+        }
+    });
+    if (typeof(Storage) !== "undefined") {
+        if (localStorage.getItem("toc") === null) {  // init value
+            localStorage.toc = "hide";
+        }
+        if(localStorage.toc == "hide") {
+            $('#toc_off').prop('checked', true);
+            $(".toc-checker").hide();
+        }else {
+            $('#toc_on').prop('checked', true);
+            $(".toc-checker").removeClass("hide");
+            $(".toc-checker").show();
+        }
+    }
+    
+
+    $("#load_content").show();
+});
+
+
+function menuToggle(no_sidebar) {
+    if(!no_sidebar) {
+        $(".sidebar").toggle();
+        $(".toc-header").toggle();
+    }
+    $("#load_content").toggleClass("col-sm-offset-3");
+    $("#load_content").toggleClass("col-sm-9");
+    $("#load_content").toggleClass("col-sm-12");
+    $("#load_content").toggleClass("sidebar-padding");
+    $(".prev_next_indicator").toggle();
+    $(".menu-group").toggle();
+}
+
+function page(no) {
+    var scrollpos = $(".sidebar").scrollTop();
+    if (typeof(Storage) !== "undefined") {
+        localStorage.sp = scrollpos;
+    }
+
+    location.href = "/"+no;
+    return false;
+
+    $(".selected_toc").removeClass("selected_toc");
+    $(".toc_item").each(function() {
+        var page_id = $(this).attr("page_id");
+        if(page_id == no) {
+            $(this).addClass("selected_toc");
+        }
+    });
+
+    var url = "/load/"+no;
+    $("#load_content").load(url, function(responseTxt, statusTxt, xhr){
+        if(statusTxt == "success") {
+            // alert("External content loaded successfully!");
+            $("#load_content").scrollTop(0);
+            window.history.pushState("object or string", "02-7 불 자료형", "/"+no);
+        }
+        if(statusTxt == "error") {
+            alert("Error: " + xhr.status + ": " + xhr.statusText);
+        }
+    });
+
+}
+</script>
+
+
+
+    </div>
+
+    
+    <div class="page col-sm-offset-3 col-sm-9" id="load_content" style="display:none;margin-top:0px;">
+        
+
+
+
+
+
+
+
+<div class="btn-group pull-right menu-group" role="group">
+    <small>
+        <a class="menu_link menu-toggle"><span class="glyphicon glyphicon-menu-hamburger" title="메뉴"></span></a>
+    </small>
+</div>
+<div class="menu-wikidocs">
+</div>
+
+
+<div class="clearfix page-depth">
+    <ol class="breadcrumb pull-left">
+        <li><small><a href="/book/1"><i class="glyphicon glyphicon-book"></i> <strong>점프 투 파이썬</strong></a></small></li>
+        
+        <li><small><a href="/11">02장 파이썬 프로그래밍의 기초, 자료형</a></small></li>
+        
+        <li><small><a href="/17">02-7 불 자료형</a></small></li>
+        
+    </ol>
+    
+    <ol class="breadcrumb pull-right">
+        <li><a href="/"><small class=""><i class="glyphicon glyphicon-home"></i> WikiDocs</small></a></li>
+    </ol>
+    
+</div>
+
+
+<h1 class="page-subject">
+    02-7 불 자료형
+    
+</h1>
+
+<div class="page-content tex2jax_process">
+    <div class="toc">
+<ul>
+<li><a href="#_1">불 자료형이란?</a></li>
+<li><a href="#_2">자료형의 참과 거짓</a></li>
+<li><a href="#_3">불 연산</a></li>
+</ul>
+</div>
+<h2 id="_1">불 자료형이란?</h2>
+<p>불(bool) 자료형이란 참(True)과 거짓(False)을 나타내는 자료형이다. 불 자료형은 다음 2가지 값만을 가질 수 있다.</p>
+<ul>
+<li>True - 참</li>
+<li>False - 거짓</li>
+</ul>
+<blockquote>
+<p>※ True나 False는 파이썬의 예약어로 true, false와 같이 사용하지 말고 첫 문자를 항상 대문자로 사용해야 한다.</p>
+</blockquote>
+<p>다음과 같이 변수 a에는 True를, 변수 b에는 False를 지정해 보자.</p>
+<pre><code class="python">&gt;&gt;&gt; a = True
+&gt;&gt;&gt; b = False
+</code></pre>
+
+<p>따옴표로 감싸지 않은 문자열을 변수에 지정해서 오류가 발생할 것 같지만 잘 실행된다. type 함수를 변수 a와 b에 사용하면 두 변수의 자료형이 bool로 지정된 것을 확인할 수 있다.</p>
+<pre><code class="python">&gt;&gt;&gt; type(a)
+&lt;class 'bool'&gt;
+&gt;&gt;&gt; type(b)
+&lt;class 'bool'&gt;
+</code></pre>
+
+<blockquote>
+<p>※ type(x)는 x의 자료형을 확인하는 파이썬의 내장 함수이다.</p>
+</blockquote>
+<p>불 자료형은 조건문의 반환 값으로도 사용된다. 조건문에 대해서는 if문에서 자세히 배우겠지만 잠시 살펴보고 넘어가자.</p>
+<pre><code class="python">&gt;&gt;&gt; 1 == 1
+True
+</code></pre>
+
+<p><code>1 == 1</code> 은 "1과 1이 같은가?"를 묻는 조건문이다. 이런 조건문은 결과로 True 또는 False에 해당되는 불 자료형을 돌려준다. 1과 1은 같으므로 True를 돌려준다.</p>
+<pre><code class="python">&gt;&gt;&gt; 2 &gt; 1
+True
+</code></pre>
+
+<p>2는 1보다 크기 때문에 <code>2 &gt; 1</code> 조건문은 True를 돌려준다.</p>
+<pre><code class="python">&gt;&gt;&gt; 2 &lt; 1
+False
+</code></pre>
+
+<p>2는 1보다 작지 않기 때문에 <code>2 &lt; 1</code> 조건문은 False를 돌려준다.</p>
+<h2 id="_2">자료형의 참과 거짓</h2>
+<p>자료형에 참과 거짓이 있다? 조금 이상하게 들리겠지만 참과 거짓은 분명히 있다. 이는 매우 중요한 특징이며 실제로도 자주 쓰인다.</p>
+<p>자료형의 참과 거짓을 구분하는 기준은 다음과 같다.</p>
+<table>
+<thead>
+<tr>
+<th>값</th>
+<th>참 or 거짓</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"python"</td>
+<td>참</td>
+</tr>
+<tr>
+<td>""</td>
+<td>거짓</td>
+</tr>
+<tr>
+<td>[1, 2, 3]</td>
+<td>참</td>
+</tr>
+<tr>
+<td>[]</td>
+<td>거짓</td>
+</tr>
+<tr>
+<td>()</td>
+<td>거짓</td>
+</tr>
+<tr>
+<td>{}</td>
+<td>거짓</td>
+</tr>
+<tr>
+<td>1</td>
+<td>참</td>
+</tr>
+<tr>
+<td>0</td>
+<td>거짓</td>
+</tr>
+<tr>
+<td>None</td>
+<td>거짓</td>
+</tr>
+</tbody>
+</table>
+<p>문자열, 리스트, 튜플, 딕셔너리 등의 값이 비어 있으면(" ", [ ], ( ), { }) 거짓이 된다. 당연히 비어있지 않으면 참이 된다. 숫자에서는 그 값이 0일 때 거짓이 된다. 위 표를 보면 None이 있는데, 이것에 대해서는 뒷부분에서 배우니 아직은 신경 쓰지 말자. 그저 None은 거짓을 뜻한다는 것만 알아두자.</p>
+<p>다음 예를 보고 참과 거짓이 프로그램에서 어떻게 쓰이는지 간단히 알아보자.</p>
+<pre><code class="python">&gt;&gt;&gt; a = [1, 2, 3, 4]
+&gt;&gt;&gt; while a:
+...     print(a.pop())
+...
+4
+3
+2
+1
+</code></pre>
+
+<p>먼저 a = [1, 2, 3, 4] 리스트를 하나 만들었다.</p>
+<p>while문은 03장에서 자세히 다루겠지만 간단히 알아보면 다음과 같다. 조건문이 참인 동안 조건문 안에 있는 문장을 반복해서 수행한다.</p>
+<pre><code class="python">while 조건문:
+    수행할 문장
+</code></pre>
+
+<p>즉 위 예를 보면 a가 참인 경우에 a.pop( )을 계속 실행하라는 의미이다. a.pop( ) 함수는 리스트 a의 마지막 요소를 끄집어내는 함수이므로 리스트 안에 요소가 존재하는 한(a가 참인 동안) 마지막 요소를 계속해서 끄집어낼 것이다. 결국 더 이상 끄집어낼 것이 없으면 a가 빈 리스트([ ])가 되어 거짓이 된다. 따라서 while문에서 조건이 거짓이 되므로 중지된다. 위에서 본 예는 파이썬 프로그래밍에서 매우 자주 사용하는 기법 중 하나이다.</p>
+<p>위 예가 너무 복잡하다고 생각하는 독자는 다음 예를 보면 쉽게 이해될 것이다.</p>
+<pre><code class="python">&gt;&gt;&gt; if []:
+...     print(&quot;참&quot;)
+... else:
+...     print(&quot;거짓&quot;)
+...
+거짓
+</code></pre>
+
+<p>if문에 대해서 잘 모르는 독자라도 위의 문장을 해석하는 데는 무리가 없을 것이다.</p>
+<blockquote>
+<p>※ if문에 대해서는 03장에서 자세히 다룬다.</p>
+</blockquote>
+<p>[ ]는 앞의 표에서 볼 수 있듯이 비어 있는 리스트이므로 거짓이다. 따라서 "거짓"이란 문자열이 출력된다. if문에 대해서 잘 모르는 독자라도 위 문장을 해석하는 데는 무리가 없을 것이다.</p>
+<pre><code class="python">&gt;&gt;&gt; if [1, 2, 3]:
+...     print(&quot;참&quot;)
+... else:
+...     print(&quot;거짓&quot;)
+... 
+참
+</code></pre>
+
+<p>위 코드를 해석해 보면 다음과 같다.</p>
+<pre><code class="no-highlight">만약 [1, 2, 3]이 참이면 &quot;참&quot;이라는 문자열을 출력하고 그렇지 않으면 &quot;거짓&quot;이라는 문자열을 출력하라.
+</code></pre>
+
+<p>위 코드의 [1, 2, 3]은 요솟값이 있는 리스트이기 때문에 참이다. 따라서 "참"을 출력한다.</p>
+<h2 id="_3">불 연산</h2>
+<p>자료형에 참과 거짓이 있음을 이미 알아보았다. bool 내장 함수를 사용하면 자료형의 참과 거짓을 식별할 수 있다.</p>
+<p>다음 예제를 따라 해 보자.</p>
+<pre><code class="python">&gt;&gt;&gt; bool('python')
+True
+</code></pre>
+
+<p>'python' 문자열은 빈 문자열이 아니므로 bool 연산의 결과로 불 자료형인 True를 돌려준다.</p>
+<pre><code class="python">&gt;&gt;&gt; bool('')
+False
+</code></pre>
+
+<p>'' 문자열은 빈 문자열이므로 bool 연산의 결과로 불 자료형인 False를 돌려준다.</p>
+<p>위에서 알아본 몇 가지 예제를 더 수행해 보자.</p>
+<pre><code class="python">&gt;&gt;&gt; bool([1,2,3])
+True
+&gt;&gt;&gt; bool([])
+False
+&gt;&gt;&gt; bool(0)
+False
+&gt;&gt;&gt; bool(3)
+True
+</code></pre>
+
+<p>위에서 알아본 것과 동일한 참과 거짓에 대한 결과를 돌려주는 것을 확인할 수 있다.</p>
+<p>지금까지 파이썬의 가장 기본이 되는 자료형인 숫자, 문자열, 리스트, 튜플, 딕셔너리, 집합, 불에 대해서 알아보았다. 여기까지 잘 따라온 독자라면 파이썬에 대해서 대략 50% 정도 습득했다고 보아도 된다. 그만큼 자료형은 중요하고 프로그램의 근간이 되기 때문에 확실하게 해놓지 않으면 좋은 프로그램을 만들 수 없다. 책에 있는 예제만 따라 하지 말고 직접 여러 가지 예들을 테스트해 보며 02-1~02-7의 자료형에 익숙해지기를 바란다.</p>
+</div>
+
+<div class="muted text-right" style="font-size: 13px;margin:10px 0;">
+    
+    마지막 편집일시 : 2019년 6월 29일 7:16 오후
+    
+</div>
+
+<!-- google adsense -->
+<!-- PC -->
+
+<!-- Mobile -->
+
+    
+        <div style="margin:20px 0;">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 위키독스모바일2020 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-9470517771012578"
+     data-ad-slot="4465552259"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+        </div>
+    
+
+
+<!-- google adsense -->
+
+<!--
+
+-->
+
+<div class="clearfix">
+    <a href="javascript:show_comments();" class="label label-info">댓글 13</a>
+    <a href="#myModal" data-toggle="modal" title="피드백을 남겨주세요" class="label label-info">피드백</a>
+</div>
+
+<div class="user_comments" style="display:none">
+
+    <div class="comments" id="page_all_comments">
+        
+
+
+
+
+<div style="margin:15px 0 10px 0; font-size:0.75em;">
+    <a href="javascript:get_all_page_comments(17)">댓글 3개 더 보기...</a>
+</div>
+
+
+
+    <div class="comment comment_border_top">
+        <a name="comment_1886"></a>
+        <span style="white-space:pre-wrap;">[궁금합니다.] a.pop()의 반환값을 받아서 사용하는 예제 좀 보여주세요.
+    &gt;&gt;&gt; a = [&#39;mark&#39;, &#39;john&#39;, &#39;bob&#39;]
+    &gt;&gt;&gt; b =&#39;phone&#39;, &#39;name&#39;, &#39;member&#39;
+    &gt;&gt;&gt; while a:
+    ...     c_dic = a.pop()
+    ... 
+    ... dic_result
+    ... {&#39;mark&#39;:&#39;phone&#39;, &#39;john&#39;:&#39;name&#39;, &#39;bob&#39;:&#39;member&#39;}</span>
+        <span style="font-size:12px;color:#888;">
+            -
+            
+                <a class="menu_link" href="/profile/info/book/">별모모</a>,
+            
+            2013년 6월 12일 11:39 오전
+            
+            
+        </span>
+    </div>
+
+    <div class="comment comment_border_top">
+        <a name="comment_2897"></a>
+        <span style="white-space:pre-wrap;">이퀄과 낫이퀄에 대해서도 언급하면 좋을 것 같습니다.</span>
+        <span style="font-size:12px;color:#888;">
+            -
+            
+                <a class="menu_link" href="/profile/info/book/1425">창욱</a>,
+            
+            2015년 4월 14일 1:01 오후
+            
+            
+        </span>
+    </div>
+
+    <div class="comment comment_border_top">
+        <a name="comment_4067"></a>
+        <span style="white-space:pre-wrap;">별모모님 굉장히 오래전 댓글이지만 제가 궁금해서 만들어보았습니다.
+
+&gt;&gt;&gt; a = [&#39;mark&#39;,&#39;john&#39;,&#39;bob&#39;]
+&gt;&gt;&gt; b = &#39;phone&#39;,&#39;name&#39;,&#39;member&#39;
+&gt;&gt;&gt; dic_result={}
+&gt;&gt;&gt; while a:
+	c_dic = a.pop()
+	dic_result[c_dic]=b[len(a)]
+&gt;&gt;&gt; dic_result
+{&#39;john&#39;: &#39;name&#39;, &#39;bob&#39;: &#39;member&#39;, &#39;mark&#39;: &#39;phone&#39;}
+
+방법이야 여러가지 있겠지만, 저는 빈 딕셔너리 자료형을 만들고 pop 할 때 마다 딕셔너리 쌍을 하나씩 추가하는 방향으로 만들었습니다.
+저처럼 궁금한 사람이 또 있다면 도움이 되었으면 좋겠습니다.</span>
+        <span style="font-size:12px;color:#888;">
+            -
+            
+                <a class="menu_link" href="/profile/info/book/3285">재은</a>,
+            
+            2016년 6월 28일 2:18 오후
+            
+            
+        </span>
+    </div>
+
+    <div class="comment comment_border_top">
+        <a name="comment_4568"></a>
+        <span style="white-space:pre-wrap;">박응용님의 쉬운 교재와 함께 열심히 공부하고 있습니다. 확실히 다른 언어보다 훨씬 영문법 공부하는 기분이네요! 제가 자료형의 참과 거짓을 바탕으로 코딩을 하다가 신기한걸 발견해서 질문 드립니다.
+보통 빈 자료형을 거짓, 아닌 자료형을 참이라고 뒀는데 이게 신기하게 맞기도 하고 아니기도 한거 같습니다.
+코드1)
+a=[1,2,3,4]
+while a:
+    a.pop()
+
+이 결과는 a를 참으로 인식하고 있는데요.
+코드2)
+a=[1,2,3,4]
+a==True
+&gt;&gt;&gt;False
+가 나옵니다.
+이건 스트링도 똑같더라구요. 제 자료형과 참거짓 분류기준에서는 이해가 잘 안되는데 어떻게 나뉘는 건가요??</span>
+        <span style="font-size:12px;color:#888;">
+            -
+            
+                <a class="menu_link" href="/profile/info/book/4024">DuckYoung</a>,
+            
+            2016년 11월 25일 12:01 오후
+            
+            
+        </span>
+    </div>
+
+    <div class="comment comment_border_top">
+        <a name="comment_4569"></a>
+        <span style="white-space:pre-wrap;">@DuckYoung님, a==True 는 a와 True 가 같은지를 조사하는 구문인데요, a는 리스트 자료형이기 때문에 bool자료형인 True와는 당연히 같지 않습니다. 만약 위처럼 bool자료형과 비교하고 싶다면 bool(a) == True 로 하는게 맞구요, 설명이 애매했는지는 모르겠는데 a자료형은 리스트이고 조건문에서 사용될 때만 참거짓 판별이 들어갑니다. 설명에 오해의 소지가 다분히 있네요. 알려주셔서 감사합니다.</span>
+        <span style="font-size:12px;color:#888;">
+            -
+            
+                <a class="menu_link" href="/profile/info/book/3">박응용</a>,
+            
+            2016년 11월 25일 1:33 오후
+            
+            
+        </span>
+    </div>
+
+    <div class="comment comment_border_top">
+        <a name="comment_4573"></a>
+        <span style="white-space:pre-wrap;">@박응용 그럼 if 나 while문에서는 자동으로 입력 인수를 bool()로 받아서 맞는지 틀렸는지 확인하는 셈이 되겠군요? 생각해보니까 모든 경우에 대해서 그러겠네요....신기합니다 감사합니다.</span>
+        <span style="font-size:12px;color:#888;">
+            -
+            
+                <a class="menu_link" href="/profile/info/book/4024">DuckYoung</a>,
+            
+            2016년 11월 26일 8:48 오전
+            
+            
+        </span>
+    </div>
+
+    <div class="comment comment_border_top">
+        <a name="comment_5303"></a>
+        <span style="white-space:pre-wrap;">@박응용 님 안녕하세요. 생명공학과지만 컴퓨터 프로그래밍에 매력을 느껴 공부하고 있는 학생입니다. cmd를 이용해서 파이썬의 참,거짓에 대해서 보고있었는데 빈 딕셔너리 자료형 &quot;{ } is True&quot;를 입력하고 False를 리턴받았는데 &quot;{ } is False&quot; 를 입력해도 False가 나오네요... 어떻게 된건지 궁금합니다.
++추가
+if 조건문으로 하니까 되기는 하는데... is 를 써서 될게 아닌지, 왜 그런지 궁금합니다.</span>
+        <span style="font-size:12px;color:#888;">
+            -
+            
+                <a class="menu_link" href="/profile/info/book/5020">jinhyeong</a>,
+            
+            2017년 5월 15일 9:04 오후
+            
+            
+        </span>
+    </div>
+
+    <div class="comment comment_border_top">
+        <a name="comment_5305"></a>
+        <span style="white-space:pre-wrap;">@jinhyeong님, is는 서로 같은 객체를 참조하는지를 판별할때 사용하는 연산자입니다. {}와 True나 False는 같은 객체일수 없기 때문에 항상 False가 나오게 됩니다. 의도하신 대로 출력해 보려면 bool({}) 과 같이 bool 함수를 이용하셔야 합니다. </span>
+        <span style="font-size:12px;color:#888;">
+            -
+            
+                <a class="menu_link" href="/profile/info/book/3">박응용</a>,
+            
+            2017년 5월 15일 11:45 오후
+            
+            
+        </span>
+    </div>
+
+    <div class="comment comment_border_top">
+        <a name="comment_6160"></a>
+        <span style="white-space:pre-wrap;">bool(&#39; &#39;)은 참이던데 이유가 궁금합니다. 인덱싱할때 하나의 요소로 인정받아서 그런건가요?</span>
+        <span style="font-size:12px;color:#888;">
+            -
+            
+                <a class="menu_link" href="/profile/info/book/6872">호잇</a>,
+            
+            2018년 8월 10일 8:35 오전
+            
+            
+        </span>
+    </div>
+
+    <div class="comment comment_border_top">
+        <a name="comment_6165"></a>
+        <span style="white-space:pre-wrap;">@호잇님, &#39; &#39;은 space문자열로 참입니다. 거짓인 경우는 아무런 값(공백포함)도 없어야 합니다.</span>
+        <span style="font-size:12px;color:#888;">
+            -
+            
+                <a class="menu_link" href="/profile/info/book/3">박응용</a>,
+            
+            2018년 8월 14일 3:09 오후
+            
+            
+        </span>
+    </div>
+
+
+
+
+
+
+    </div>
+
+    
+    <a href="/loginForm" class="text-info" style="font-size:12px">※ 댓글 작성은 로그인이 필요합니다.</a>
+    <a href="#myModal" data-toggle="modal" style="font-size:12px">(또는 피드백을 이용해 주세요.)</a>
+    
+</div>
+
+<div class="page-prev-next">
+    <div class="clearfix">
+    <div class="pull-left">
+        <ul>
+            
+                <li><strong>이전글</strong> : <a href="javascript:page(1015)">02-6 집합 자료형</a></li>
+            
+            
+                <li><strong>다음글</strong> : <a href="javascript:page(18)">02-8 자료형의 값을 저장하는 공간, 변수</a></li>
+            
+        </ul>
+    </div>
+
+
+</div>
+
+
+
+
+</div>
+
+<!--
+<div class="clearfix" style="font-family:consolas;margin:10px 0 10px 0;padding:0;">
+    <small><a href="/" class="menu_link pull-left">Published with WikiDocs</a></small>
+</div>
+-->
+
+<a href="#top" class="label label-default back-to-top">
+    <span class="glyphicon glyphicon-arrow-up"></span>
+    TOP
+</a>
+
+
+
+
+    </div>
+
+</div>
+
+<div style="display:none" class="prev_next_indicator">
+    
+    <a class="prev_icon" href="javascript:page(1015)" role="button">
+        <span class="glyphicon glyphicon-chevron-left" style="font-size:2em;"></span>
+    </a>
+
+
+    <a class="next_icon" href="javascript:page(18)" role="button">
+        <span class="glyphicon glyphicon-chevron-right" style="font-size:2em;"></span>
+    </a>
+
+
+</div>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h3 id="myModalLabel" class="modal-title">이 페이지에 대한 피드백을 남겨주세요</h3>
+            </div>
+            <div class="modal-body">
+                <form class="form" role="form">
+                    <input type="hidden" name="page_id" id="page_id" value="17" />
+                    <div class="form-group">
+                        <label class="control-label" for="email">답장받을 이메일 주소</label>
+                        <div class="">
+                            <input class="form-control" type="text" id="email" placeholder="Email" >
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="feedback">하고 싶은 말</label>
+                        <div class="controls">
+                            <textarea class="form-control" id="feedback" rows="5"></textarea>
+                        </div>
+                    </div>
+                    <p style="font-size:12px;">※ 피드백은 저자에게 e-메일로 전달됩니다.</p>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default" data-dismiss="modal">Close</button>
+                <button class="btn btn-primary" id="feedback_btn">전송하기</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+
+
+<script>
+$(document).ready(function () {
+    $('pre code').each(function(i, e) {
+        hljs.highlightElement(e);
+        $(e).html($(e).html()
+            .replace(/\[\[MARK\]\]/g,'<mark class="add">')
+            .replace(/\[\[\/MARK\]\]/g, '</mark>')
+            .replace(/\[\[SMARK\]\]/g,'<mark class="del"><strike>')
+            .replace(/\[\[\/SMARK\]\]/g, '</strike></mark>')
+            .replace(/\[\[\/.*SMARK.*\]\]/g, '</strike></mark>')
+            .replace(/\[\[.*SMARK.*\]\]/g,'<mark class="del"><strike>')
+            .replace(/\[\[\/.*MARK.*\]\]/g, '</mark>')
+            .replace(/\[\[.*MARK.*\]\]/g,'<mark class="add">')
+        );
+    });
+});
+</script>
+
+</body>
+</html>
