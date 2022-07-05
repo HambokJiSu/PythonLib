@@ -1,33 +1,29 @@
 id_list = ["muzi", "frodo", "apeach", "neo"]
-id_list = ["con", "ryan"]
+#id_list = ["con", "ryan"]
 #	ex) muzi frodo => 유저 muzi가 frodo를 신고했다
 report = ["muzi frodo","apeach frodo","frodo neo","muzi neo","apeach muzi"]
-report = ["ryan con", "ryan con", "ryan con", "ryan con"]
-k = 3	#	차단 기준
+#report = ["ryan con", "ryan con", "ryan con", "ryan con"]
+
+k = 2	#	차단 기준
+#k = 3	#	차단 기준
 
 #print(set(report))
 
+arrUniReport	= list(set(report))
 arrReportCnt	= []
 arrBanUser 		= []
 answer			= []
 
-for i in set(report): 
-	arrReportCnt.append(i.split(" ")[1])
+arrReportCnt 	= list(map(lambda i: i.split(" ")[1], arrUniReport))
+arrBanUser		= list(filter(lambda i: arrReportCnt.count(i) >= k, id_list))
 
-#print(arrReportCnt)
-for i in id_list: 
-	if arrReportCnt.count(i) >= k :
-		arrBanUser.append(i)
+arrReportUser	= list(filter(lambda i: i.split(" ")[1] in arrBanUser, arrUniReport))
+arrReportUser	= list(map(lambda i: i.split(" ")[0], arrReportUser))
 
-mailCnt = 0
+#print(arrReportUser)
+#	Ban 사용자는 확보, 신고한 사용자의 메일 카운팅 이슈
+
 for i in id_list:
-	for j in arrBanUser:
-		# print(i + " " + j)
-		# print(i + " " + j in set(report))
-		if (i + " " + j) in set(report):
-			mailCnt = mailCnt + 1
-
-	answer.append(mailCnt)
-	mailCnt = 0
+	answer.append(arrReportUser.count(i))
 
 print(answer)
