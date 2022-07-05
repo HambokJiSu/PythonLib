@@ -1,0 +1,355 @@
+{
+	"response": {
+		"header": {
+			"resultCode": "00",
+			"resultMsg": "NORMAL SERVICE."
+		},
+		"body": {
+			"items": [
+				{
+				"region": "기타",
+				"country": "네팔",
+				"arrFlight": "9",
+				"depFlight": "9",
+				"flights": "18"
+				},
+				{
+				"region": "기타",
+				"country": "몰디브",
+				"arrFlight": "13",
+				"depFlight": "13",
+				"flights": "26"
+				},
+				{
+				"region": "기타",
+				"country": "스리랑카",
+				"arrFlight": "0",
+				"depFlight": "0",
+				"flights": "0"
+				},
+				{
+				"region": "기타",
+				"country": "에티오피아",
+				"arrFlight": "17",
+				"depFlight": "17",
+				"flights": "34"
+				},
+				{
+				"region": "기타",
+				"country": "인도",
+				"arrFlight": "44",
+				"depFlight": "44",
+				"flights": "88"
+				},
+				{
+				"region": "기타",
+				"country": "케냐",
+				"arrFlight": "9",
+				"depFlight": "10",
+				"flights": "19"
+				},
+				{
+				"region": "대양주",
+				"country": "괌",
+				"arrFlight": "127",
+				"depFlight": "127",
+				"flights": "254"
+				},
+				{
+				"region": "대양주",
+				"country": "뉴질랜드",
+				"arrFlight": "18",
+				"depFlight": "18",
+				"flights": "36"
+				},
+				{
+				"region": "대양주",
+				"country": "사이판",
+				"arrFlight": "56",
+				"depFlight": "55",
+				"flights": "111"
+				},
+				{
+				"region": "대양주",
+				"country": "팔라우",
+				"arrFlight": "18",
+				"depFlight": "18",
+				"flights": "36"
+				},
+				{
+				"region": "대양주",
+				"country": "피지",
+				"arrFlight": "13",
+				"depFlight": "13",
+				"flights": "26"
+				},
+				{
+				"region": "대양주",
+				"country": "하와이",
+				"arrFlight": "122",
+				"depFlight": "123",
+				"flights": "245"
+				},
+				{
+				"region": "대양주",
+				"country": "호주",
+				"arrFlight": "74",
+				"depFlight": "74",
+				"flights": "148"
+				},
+				{
+				"region": "동남아",
+				"country": "라오스",
+				"arrFlight": "26",
+				"depFlight": "26",
+				"flights": "52"
+				},
+				{
+				"region": "동남아",
+				"country": "말레이시아",
+				"arrFlight": "152",
+				"depFlight": "151",
+				"flights": "303"
+				},
+				{
+				"region": "동남아",
+				"country": "미얀마",
+				"arrFlight": "40",
+				"depFlight": "40",
+				"flights": "80"
+				},
+				{
+				"region": "동남아",
+				"country": "베트남",
+				"arrFlight": "377",
+				"depFlight": "377",
+				"flights": "754"
+				},
+				{
+				"region": "동남아",
+				"country": "싱가포르",
+				"arrFlight": "238",
+				"depFlight": "238",
+				"flights": "476"
+				},
+				{
+				"region": "동남아",
+				"country": "인도네시아",
+				"arrFlight": "186",
+				"depFlight": "186",
+				"flights": "372"
+				},
+				{
+				"region": "동남아",
+				"country": "캄보디아",
+				"arrFlight": "113",
+				"depFlight": "113",
+				"flights": "226"
+				},
+				{
+				"region": "동남아",
+				"country": "태국",
+				"arrFlight": "565",
+				"depFlight": "565",
+				"flights": "1,130"
+				},
+				{
+				"region": "동남아",
+				"country": "필리핀",
+				"arrFlight": "696",
+				"depFlight": "694",
+				"flights": "1,390"
+				},
+				{
+				"region": "동북아",
+				"country": "대만",
+				"arrFlight": "253",
+				"depFlight": "253",
+				"flights": "506"
+				},
+				{
+				"region": "동북아",
+				"country": "마카오",
+				"arrFlight": "73",
+				"depFlight": "72",
+				"flights": "145"
+				},
+				{
+				"region": "동북아",
+				"country": "몽골",
+				"arrFlight": "54",
+				"depFlight": "54",
+				"flights": "108"
+				},
+				{
+				"region": "동북아",
+				"country": "홍콩",
+				"arrFlight": "571",
+				"depFlight": "570",
+				"flights": "1,141"
+				},
+				{
+				"region": "미주",
+				"country": "미국",
+				"arrFlight": "682",
+				"depFlight": "683",
+				"flights": "1,365"
+				},
+				{
+				"region": "미주",
+				"country": "브라질",
+				"arrFlight": "14",
+				"depFlight": "13",
+				"flights": "27"
+				},
+				{
+				"region": "미주",
+				"country": "캐나다",
+				"arrFlight": "75",
+				"depFlight": "75",
+				"flights": "150"
+				},
+				{
+				"region": "유럽",
+				"country": "네덜란드",
+				"arrFlight": "44",
+				"depFlight": "45",
+				"flights": "89"
+				},
+				{
+				"region": "유럽",
+				"country": "독일",
+				"arrFlight": "120",
+				"depFlight": "120",
+				"flights": "240"
+				},
+				{
+				"region": "유럽",
+				"country": "러시아",
+				"arrFlight": "203",
+				"depFlight": "204",
+				"flights": "407"
+				},
+				{
+				"region": "유럽",
+				"country": "스위스",
+				"arrFlight": "13",
+				"depFlight": "14",
+				"flights": "27"
+				},
+				{
+				"region": "유럽",
+				"country": "스페인",
+				"arrFlight": "13",
+				"depFlight": "13",
+				"flights": "26"
+				},
+				{
+				"region": "유럽",
+				"country": "영국",
+				"arrFlight": "93",
+				"depFlight": "93",
+				"flights": "186"
+				},
+				{
+				"region": "유럽",
+				"country": "오스트리아",
+				"arrFlight": "0",
+				"depFlight": "0",
+				"flights": "0"
+				},
+				{
+				"region": "유럽",
+				"country": "우즈베키스탄",
+				"arrFlight": "36",
+				"depFlight": "36",
+				"flights": "72"
+				},
+				{
+				"region": "유럽",
+				"country": "이탈리아",
+				"arrFlight": "14",
+				"depFlight": "13",
+				"flights": "27"
+				},
+				{
+				"region": "유럽",
+				"country": "체코",
+				"arrFlight": "36",
+				"depFlight": "36",
+				"flights": "72"
+				},
+				{
+				"region": "유럽",
+				"country": "카자흐스탄",
+				"arrFlight": "19",
+				"depFlight": "19",
+				"flights": "38"
+				},
+				{
+				"region": "유럽",
+				"country": "터키",
+				"arrFlight": "95",
+				"depFlight": "94",
+				"flights": "189"
+				},
+				{
+				"region": "유럽",
+				"country": "프랑스",
+				"arrFlight": "81",
+				"depFlight": "80",
+				"flights": "161"
+				},
+				{
+				"region": "유럽",
+				"country": "핀란드",
+				"arrFlight": "31",
+				"depFlight": "31",
+				"flights": "62"
+				},
+				{
+				"region": "일본",
+				"country": "일본",
+				"arrFlight": "1,665",
+				"depFlight": "1,664",
+				"flights": "3,329"
+				},
+				{
+				"region": "중국",
+				"country": "중국",
+				"arrFlight": "2,641",
+				"depFlight": "2,643",
+				"flights": "5,284"
+				},
+				{
+				"region": "중동",
+				"country": "사우디아라비아",
+				"arrFlight": "13",
+				"depFlight": "13",
+				"flights": "26"
+				},
+				{
+				"region": "중동",
+				"country": "아랍에미리트",
+				"arrFlight": "83",
+				"depFlight": "85",
+				"flights": "168"
+				},
+				{
+				"region": "중동",
+				"country": "이스라엘",
+				"arrFlight": "13",
+				"depFlight": "14",
+				"flights": "27"
+				},
+				{
+				"region": "중동",
+				"country": "카타르",
+				"arrFlight": "31",
+				"depFlight": "31",
+				"flights": "62"
+				}
+			]
+		}
+	}
+}
