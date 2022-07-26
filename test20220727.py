@@ -23,6 +23,12 @@ array	                commands	                        return
 [1, 5, 2, 6, 3, 7, 4]를 1번째부터 7번째까지 자릅니다. [1, 2, 3, 4, 5, 6, 7]의 세 번째 숫자는 3입니다.
 
 sorted 함수 사용법 확인해보자.
+
+베스트
+
+def solution(array, commands):
+    return list(map(lambda x:sorted(array[x[0]-1:x[1]])[x[2]-1], commands))
+
 """
 def solution(array, commands):
     answer = []
