@@ -33,86 +33,28 @@
 
 def solution(n):
     result = []
-    while n:
+    while n > 0:
         t = n % 3
-        if not t:
+        if t == 0:
             t = 3
             n -= 1
         result.append(str(t))
-        n //= 3
-    print(result[::-1])
-    for i in range(len(result)):
-        if result[i] == '3':
-            result[i] = '4'
+        n = n // 3
+    result = list(map(lambda i: '4' if i == '3' else i, result))
     return ''.join(result[::-1])
 
-print(solution(20))
+print(solution(10))
+
+"""
+def change124(n):
+    num = ['1','2','4']
+    answer = ""
 
 
-def ufn_conv(n):
-	rtn = ""
-	tmp = 0
-	while n > 0: 
-		tmp = n % 3
-		if tmp == 0:
-			tmp = 1
-		elif tmp == 1:
-			tmp = 2
-		else:
-			tmp = 4
-		
-		rtn = str(tmp) + rtn
-		n//=3
-	return rtn
+    while n > 0:
+        n -= 1
+        answer = num[n % 3] + answer
+        n //= 3
 
-num = 1
-rst = ufn_conv(num)
-print(num, ":", rst)
-
-num = 2
-rst = ufn_conv(num)
-print(num, ":", rst)
-
-num = 3
-rst = ufn_conv(num)
-print(num, ":", rst)
-
-num = 4
-rst = ufn_conv(num)
-print(num, ":", rst)
-
-num = 5
-rst = ufn_conv(num)
-print(num, ":", rst)
-
-num = 6
-rst = ufn_conv(num)
-print(num, ":", rst)
-
-num = 7
-rst = ufn_conv(num)
-print(num, ":", rst)
-
-num = 8
-rst = ufn_conv(num)
-print(num, ":", rst)
-
-num = 9
-rst = ufn_conv(num)
-print(num, ":", rst)
-
-num = 10
-rst = ufn_conv(num)
-print(num, ":", rst)
-
-num = 11
-rst = ufn_conv(num)
-print(num, ":", rst)
-
-num = 12
-rst = ufn_conv(num)
-print(num, ":", rst)
-
-num = 13
-rst = ufn_conv(num)
-print(num, ":", rst)
+    return answer
+"""
